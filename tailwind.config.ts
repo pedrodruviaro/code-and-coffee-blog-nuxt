@@ -9,6 +9,7 @@ export default {
         brand: {
           black: "#000000",
           white: "#ffffff",
+          gray: "#BFBEBF",
           main: "#ecc585",
         },
       },

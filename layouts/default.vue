@@ -1,8 +1,8 @@
 <template>
   <LayoutHeader />
-  <main class="my-10 lg:my-14">
+  <UiContainer as="main" class="my-10 lg:my-14">
     <slot />
-  </main>
+  </UiContainer>
 
   <LayoutFooter />
 </template>
