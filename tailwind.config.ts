@@ -4,6 +4,14 @@ export default {
       fontFamily: {
         brand: ["Work Sans", "system-ui", "sans-serif"],
       },
+
+      colors: {
+        brand: {
+          black: "#000000",
+          white: "#ffffff",
+          main: "#ecc585",
+        },
+      },
     },
   },
 }
