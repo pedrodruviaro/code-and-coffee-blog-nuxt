@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <section>
       <h1 class="text-6xl font-black">
         <span class="hidden">Code & Coffee</span>
@@ -20,5 +20,5 @@
       <UiSectionTitle text="Authors" />
       <AuthorsListAll class="mt-8" />
     </section>
-  </div>
+  </main>
 </template>

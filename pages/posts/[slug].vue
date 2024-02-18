@@ -44,7 +44,9 @@ if (!data.value.post) {
 </script>
 
 <template>
-  <section>
-    <h1>{{ slug }}</h1>
-  </section>
+  <main>
+    <section>
+      <h1>{{ slug }}</h1>
+    </section>
+  </main>
 </template>
