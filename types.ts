@@ -30,3 +30,33 @@ export interface Author {
     url: string
   }
 }
+
+export interface Post {
+  __typename: string
+  author: {
+    __typename: string
+    avatar: {
+      __typename: string
+      url: string
+    }
+    description: string
+    name: string
+    slug: string
+  }
+  category: {
+    __typename: string
+    name: string
+    slug: string
+  }
+  content: {
+    __typename: string
+    markdown: string
+  }
+  title: string
+  date: string
+  description: string
+  image: {
+    __typename: string
+    url: string
+  }
+}

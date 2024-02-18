@@ -5,12 +5,16 @@ interface Props {
   post: PostPreview
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const postLink = computed(() => {
+  return `/posts/${props.post.slug}`
+})
 </script>
 
 <template>
   <NuxtLink
-    to="/"
+    :to="postLink"
     class="grid gap-4 md:grid-cols-[max-content_1fr] border-b-4 border-brand-gray pb-6 lg:pb-10 lg:gap-10"
   >
     <div class="w-full aspect-square md:max-w-72">
