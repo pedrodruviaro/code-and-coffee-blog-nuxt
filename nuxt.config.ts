@@ -12,8 +12,7 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       default: {
-        httpEndpoint:
-          "https://api-sa-east-1.hygraph.com/v2/clsq0nu2o0pwv01umyr941v6j/master",
+        httpEndpoint: process.env.NUXT_APOLLO_CONTENT_API as string,
       },
     },
   },
