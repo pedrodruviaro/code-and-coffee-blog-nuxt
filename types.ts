@@ -19,3 +19,14 @@ export interface PostPreview {
     slug: string
   }
 }
+
+export interface Author {
+  __typename: string
+  name: string
+  slug: string
+  description: string
+  avatar: {
+    __typename: string
+    url: string
+  }
+}
