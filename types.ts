@@ -50,7 +50,7 @@ export interface Post {
   }
   content: {
     __typename: string
-    markdown: string
+    html: string
   }
   title: string
   date: string

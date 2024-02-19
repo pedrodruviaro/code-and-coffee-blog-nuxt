@@ -22,7 +22,7 @@ const { data } = await useAsyncQuery<GetAuthors>(query)
 </script>
 
 <template>
-  <article class="grid md:grid-cols-2">
+  <article class="grid md:grid-cols-2" v-if="data.authors">
     <div
       v-for="author in data.authors"
       :key="author.slug"

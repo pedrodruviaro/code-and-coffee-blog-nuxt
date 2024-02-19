@@ -17,7 +17,7 @@ const query = gql`
         slug
       }
       content {
-        markdown
+        html
       }
       title
       date
@@ -34,7 +34,15 @@ const {
 
 const variables = { slug }
 
-const { data } = await useAsyncQuery<Post>(query, variables)
+const { data, error } = await useAsyncQuery<Post>(query, variables)
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    statusMessage: error.value.statusMessage,
+    fatal: true,
+  })
+}
 
 if (!data.value.post) {
   throw createError({
@@ -45,15 +53,19 @@ if (!data.value.post) {
 }
 
 useSeoMeta({
-  title: data.value.post.title || "",
-  description: data.value.post.description || "",
+  title: data.value.post.title,
+  description: data.value.post.description,
 })
 </script>
 
 <template>
   <main>
     <section>
-      <h1>{{ slug }}</h1>
+      <article
+        class="prose prose-zinc max-w-full"
+        v-html="data.post.content.html"
+        v-if="data.post && !error"
+      ></article>
     </section>
   </main>
 </template>

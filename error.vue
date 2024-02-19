@@ -27,7 +27,13 @@ function handleError() {
       <UiContainer class="z-10 grid place-items-center py-10 min-h-[85vh]">
         <div>
           <h2>{{ error?.statusCode }}</h2>
-          <p>{{ error?.statusMessage }}</p>
+          <p>
+            {{
+              error?.statusMessage
+                ? error?.statusMessage
+                : "Something went wrong..."
+            }}
+          </p>
           <button @click="handleError">Clear errors</button>
         </div>
       </UiContainer>

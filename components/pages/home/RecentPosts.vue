@@ -33,6 +33,7 @@ const { data } = await useAsyncQuery<GetFirstSevenPostsPreview>(query)
 <template>
   <section
     class="mt-10 lg:mt-14 grid gap-12 lg:gap-14 lg:grid-cols-[1fr_max-content]"
+    v-if="data.posts"
   >
     <PostPreviewList :posts="data.posts" />
     <PagesHomeAsideContent />
