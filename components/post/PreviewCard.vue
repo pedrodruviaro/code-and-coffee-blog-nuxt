@@ -39,10 +39,8 @@ const postLink = computed(() => {
           <p><strong>Author:</strong> {{ post.author.name }}</p>
           <p><strong>Date:</strong> {{ post.date }}</p>
         </div>
-        <span
-          class="border-2 border-brand-black rounded-full px-3 py-1 font-semibold uppercase block max-w-max"
-          >{{ post.category.name }}</span
-        >
+
+        <UiBadge :text="post.category.name" />
       </div>
     </div>
   </NuxtLink>
