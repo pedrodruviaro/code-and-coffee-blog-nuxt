@@ -15,7 +15,7 @@ const postLink = computed(() => {
 <template>
   <NuxtLink
     :to="postLink"
-    class="grid gap-4 md:grid-cols-[max-content_1fr] border-b-4 border-brand-gray pb-6 lg:pb-10 lg:gap-10"
+    class="post--card grid gap-4 md:grid-cols-[max-content_1fr] border-b-4 border-brand-gray pb-6 lg:pb-10 lg:gap-10"
   >
     <div class="w-full aspect-square md:max-w-72">
       <img
@@ -45,3 +45,9 @@ const postLink = computed(() => {
     </div>
   </NuxtLink>
 </template>
+
+<style scoped>
+.post--card:last-child {
+  border-bottom: none;
+}
+</style>
