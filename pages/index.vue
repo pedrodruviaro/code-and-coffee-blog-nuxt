@@ -1,3 +1,10 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: "Home",
+  description: "",
+})
+</script>
+
 <template>
   <main>
     <section>

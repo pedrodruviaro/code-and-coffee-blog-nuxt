@@ -43,6 +43,11 @@ if (!data.value.post) {
     fatal: true,
   })
 }
+
+useSeoMeta({
+  title: data.value.post.title || "",
+  description: data.value.post.description || "",
+})
 </script>
 
 <template>

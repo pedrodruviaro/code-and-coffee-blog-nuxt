@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { NuxtError } from "#app"
 
+useSeoMeta({
+  title: "Something went wrong...",
+})
+
 defineProps({
   error: Object as () => NuxtError,
 })
@@ -17,10 +21,10 @@ function handleError() {
         src="~/assets/images/error-page-bg.jpg"
         alt=""
         aria-hidden="true"
-        class="w-full h-full absolute inset-0 z-0"
+        class="w-full h-full absolute inset-0 z-0 object-cover object-center"
       />
 
-      <UiContainer class="z-10 grid place-items-center py-24 md:py-36 lg:py-52">
+      <UiContainer class="z-10 grid place-items-center py-10 min-h-[85vh]">
         <div>
           <h2>{{ error?.statusCode }}</h2>
           <p>{{ error?.statusMessage }}</p>
