@@ -28,12 +28,8 @@ function handleSubmit() {
             placeholder="your.email@provider.com"
             class="text-brand-black p-2 focus:outline-brand-main w-full max-w-[22ch]"
           />
-          <button
-            type="submit"
-            class="text-brand-black bg-brand-white px-4 py-2 hover:bg-opacity-80 focus:outline-brand-main"
-          >
-            Sign up
-          </button>
+
+          <UiButton as="button">Sign up</UiButton>
         </form>
       </div>
     </UiContainer>
