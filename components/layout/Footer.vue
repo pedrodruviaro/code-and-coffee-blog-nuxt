@@ -17,7 +17,10 @@ function handleSubmit() {
       <div class="grid gap-8 md:grid-cols-[max-content_1fr] items-center">
         <UiSectionTitle text="Code news to your inbox" class="max-w-[15ch]" />
 
-        <form class="flex gap-2 flex-wrap" @submit.prevent="handleSubmit">
+        <form
+          class="flex gap-2 flex-wrap md:justify-self-end md:grid md:grid-cols-[1fr_max-content]"
+          @submit.prevent="handleSubmit"
+        >
           <input
             required
             v-model="enteredEmail"
