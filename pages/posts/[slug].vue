@@ -33,7 +33,6 @@ const {
 } = useRoute()
 
 const variables = { slug }
-
 const { data, error } = await useAsyncQuery<Post>(query, variables)
 
 if (error.value) {
@@ -60,7 +59,74 @@ useSeoMeta({
 
 <template>
   <main>
-    <section>
+    <section class="flex items-center justify-between">
+      <button
+        class="flex items-center uppercase font-semibold gap-2"
+        @click="$router.go(-1)"
+      >
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="#000000"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"
+            ></path>
+          </svg>
+        </span>
+        <span>Go back</span>
+      </button>
+    </section>
+
+    <section
+      class="grid gap-4 my-10 lg:mt-14 lg:mb-20 md:grid-cols-2 md:gap-6 lg:gap-20 lg:grid-cols-2"
+    >
+      <div class="flex flex-col">
+        <h1 class="font-black uppercase text-3xl lg:text-5xl">
+          {{ data.post.title }}
+        </h1>
+        <p class="text-lg my-5">{{ data.post.description }}</p>
+        <UiBadge :text="data.post.category.name" class="mt-auto" />
+      </div>
+
+      <div class="w-full aspect-video">
+        <img
+          :src="data.post.image.url"
+          alt=""
+          aria-hidden="true"
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+    </section>
+
+    <!-- POST -->
+    <section
+      class="flex flex-col-reverse gap-10 lg:grid lg:grid-cols-[1fr_2fr] xl:gap-14"
+    >
+      <!-- AUTHOR -->
+      <aside>
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-24 aspect-square rounded-full overflow-hidden">
+            <img
+              :src="data.post.author.avatar.url"
+              :alt="data.post.author.name"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+          <h4 class="font-bold text-2xl md:text-3xl">
+            {{ data.post.author.name }}
+          </h4>
+        </div>
+        <p class="border-b-2 border-brand-gray pb-4 mb-4 max-w-[50ch]">
+          {{ data.post.author.description }}
+        </p>
+        <p><strong>Date: </strong>{{ data.post.date }}</p>
+      </aside>
+
+      <!-- CONTENT -->
       <article
         class="prose prose-zinc max-w-full"
         v-html="data.post.content.html"
