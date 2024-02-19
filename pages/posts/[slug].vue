@@ -102,21 +102,19 @@ useSeoMeta({
       </div>
     </section>
 
-    <!-- POST -->
     <section
       class="flex flex-col-reverse gap-10 lg:grid lg:grid-cols-[1fr_2fr] xl:gap-14"
     >
-      <!-- AUTHOR -->
       <aside>
         <div class="flex items-center gap-4 mb-4">
-          <div class="w-24 aspect-square rounded-full overflow-hidden">
+          <div class="w-20 aspect-square rounded-full overflow-hidden">
             <img
               :src="data.post.author.avatar.url"
               :alt="data.post.author.name"
               class="w-full h-full object-cover object-center"
             />
           </div>
-          <h4 class="font-bold text-2xl md:text-3xl">
+          <h4 class="font-bold text-2xl md:text-3xl max-w-[11ch]">
             {{ data.post.author.name }}
           </h4>
         </div>
