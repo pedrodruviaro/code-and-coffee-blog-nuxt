@@ -4,9 +4,11 @@ const LOADING_INDICATOR_COLOR = "linear-gradient(to right, #CB6D4E, #B99D71)"
 
 <template>
   <NuxtLoadingIndicator :color="LOADING_INDICATOR_COLOR" />
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
 </template>
 
 <style>

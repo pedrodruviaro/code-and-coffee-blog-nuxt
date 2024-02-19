@@ -36,10 +36,12 @@ const variables = { slug }
 
 const { data } = await useAsyncQuery<Post>(query, variables)
 
-const router = useRouter()
-
 if (!data.value.post) {
-  router.push("/")
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Post not found",
+    fatal: true,
+  })
 }
 </script>
 
