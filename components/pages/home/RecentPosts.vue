@@ -35,7 +35,15 @@ const { data } = await useAsyncQuery<GetFirstSevenPostsPreview>(query)
     class="mt-10 lg:mt-14 grid gap-12 lg:gap-14 lg:grid-cols-[1fr_max-content]"
     v-if="data.posts"
   >
-    <PostPreviewList :posts="data.posts" />
+    <div>
+      <PostPreviewList :posts="data.posts" />
+      <NuxtLink
+        to="/posts"
+        class="font-black uppercase text-lg md:text-3xl mt-5 block"
+        >See all posts</NuxtLink
+      >
+    </div>
+
     <PagesHomeAsideContent />
   </section>
 </template>
