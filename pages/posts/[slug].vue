@@ -103,9 +103,9 @@ useSeoMeta({
     </section>
 
     <section
-      class="flex flex-col-reverse gap-10 lg:grid lg:grid-cols-[1fr_2fr] xl:gap-14"
+      class="flex flex-col-reverse gap-10 lg:grid lg:grid-cols-[1fr_2fr] lg:items-start xl:gap-14"
     >
-      <aside>
+      <aside class="lg:sticky lg:top-8">
         <div class="flex items-center gap-4 mb-4">
           <div class="w-20 aspect-square rounded-full overflow-hidden">
             <img
