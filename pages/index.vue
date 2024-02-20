@@ -23,15 +23,20 @@ useSeoMeta({
 
     <PagesHomeRecentPosts />
 
-    <NuxtLink
-      to="/posts"
-      class="font-black uppercase text-lg md:text-3xl mt-5 block"
-      >See all posts</NuxtLink
-    >
+    <section class="custom-section">
+      <UiSectionTitle text="Our shows" />
+      <ShowsListAll class="mt-8" />
+    </section>
 
-    <section class="mt-10 lg:mt-14 border-t-4 pt-10 lg:pt-14 border-brand-gray">
+    <section class="custom-section">
       <UiSectionTitle text="Authors" />
       <AuthorsListAll class="mt-8" />
     </section>
   </main>
 </template>
+
+<style scoped>
+.custom-section {
+  @apply mt-10 lg:mt-14 border-t-4 pt-10 lg:pt-14 border-brand-gray;
+}
+</style>
