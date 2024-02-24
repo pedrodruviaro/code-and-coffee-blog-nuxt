@@ -16,9 +16,10 @@ useSeoMeta({
           alt="Code & Coffee"
         />
       </h1>
-      <div
-        class="bg-brand-black text-brand-white w-full h-16 mt-10 lg:mt-14"
-      ></div>
+      <div class="mt-10 md:bg-brand-black md:text-brand-white w-full md:p-4">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
+        neque, eligendi voluptates harum, quas error sint nulla.
+      </div>
     </section>
 
     <PagesHomeRecentPosts />
