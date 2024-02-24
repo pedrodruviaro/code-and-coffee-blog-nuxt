@@ -51,6 +51,8 @@ if (!data.value.post) {
   })
 }
 
+const { date: postDate } = usePostDate(data.value.post.date)
+
 useSeoMeta({
   title: data.value.post.title,
   description: data.value.post.description,
@@ -121,7 +123,7 @@ useSeoMeta({
         <p class="border-b-2 border-brand-gray pb-4 mb-4 max-w-[50ch]">
           {{ data.post.author.description }}
         </p>
-        <p><strong>Date: </strong>{{ data.post.date }}</p>
+        <p><strong>Date: </strong>{{ postDate }}</p>
       </aside>
 
       <!-- CONTENT -->

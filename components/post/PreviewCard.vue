@@ -10,6 +10,8 @@ const props = defineProps<Props>()
 const postLink = computed(() => {
   return `/posts/${props.post.slug}`
 })
+
+const { date: postDate } = usePostDate(props.post.date)
 </script>
 
 <template>
@@ -37,7 +39,7 @@ const postLink = computed(() => {
       >
         <div class="grid md:flex md:gap-4 md:items-center">
           <p><strong>Author:</strong> {{ post.author.name }}</p>
-          <p><strong>Date:</strong> {{ post.date }}</p>
+          <p><strong>Date:</strong> {{ postDate }}</p>
         </div>
 
         <UiBadge :text="post.category.name" />
