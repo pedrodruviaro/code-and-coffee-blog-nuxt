@@ -34,10 +34,8 @@ const { date: postDate } = usePostDate(props.post.date)
         </p>
       </div>
 
-      <div
-        class="grid gap-4 md:flex md:flex-wrap md:items-center md:justify-between"
-      >
-        <div class="grid md:flex md:gap-4 md:items-center">
+      <div class="grid gap-4 xl:flex xl:items-center xl:justify-between">
+        <div class="grid">
           <p><strong>Author:</strong> {{ post.author.name }}</p>
           <p><strong>Date:</strong> {{ postDate }}</p>
         </div>
