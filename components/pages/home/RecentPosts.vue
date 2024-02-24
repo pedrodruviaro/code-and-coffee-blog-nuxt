@@ -39,7 +39,7 @@ const { data } = await useAsyncQuery<GetFirstSevenPostsPreview>(query)
       <PostPreviewList :posts="data.posts" />
       <NuxtLink
         to="/posts"
-        class="font-black uppercase text-lg md:text-3xl mt-5 block"
+        class="font-black uppercase text-lg md:text-3xl mt-5 block py-2 hover:text-brand-gray transition-all"
         >See all posts</NuxtLink
       >
     </div>
