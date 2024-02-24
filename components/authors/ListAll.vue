@@ -23,10 +23,11 @@ const { data } = await useAsyncQuery<GetAuthors>(query)
 
 <template>
   <article class="grid md:grid-cols-2" v-if="data.authors">
-    <div
+    <NuxtLink
       v-for="author in data.authors"
       :key="author.slug"
-      class="author--card border border-brand-black p-4 grid justify-items-center gap-4 md:flex md:items-center"
+      class="author--card border border-brand-black p-4 grid justify-items-center gap-4 md:flex md:items-center hover:bg-zinc-100 cursor-pointer"
+      :to="`/author/${author.slug}`"
     >
       <div class="w-24 aspect-square rounded-full overflow-hidden">
         <img
@@ -39,7 +40,7 @@ const { data } = await useAsyncQuery<GetAuthors>(query)
       <h3 class="font-bold text-xl text-center md:text-left">
         {{ author.name }}
       </h3>
-    </div>
+    </NuxtLink>
   </article>
 </template>
 
