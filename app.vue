@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const LOADING_INDICATOR_COLOR = "linear-gradient(to right, #CB6D4E, #B99D71)"
-const BASE_SITE_TITLE = "Code & Coffee"
+import { BASE_SITE_TITLE, LOADING_INDICATOR_COLOR } from "@/constants/siteInfos"
 
 useHead({
   titleTemplate: (chunk) => {
@@ -10,7 +9,7 @@ useHead({
 </script>
 
 <template>
-  <NuxtLoadingIndicator :color="LOADING_INDICATOR_COLOR" />
+  <NuxtLoadingIndicator :color="LOADING_INDICATOR_COLOR" :height="4" />
   <div>
     <NuxtLayout>
       <NuxtPage />
