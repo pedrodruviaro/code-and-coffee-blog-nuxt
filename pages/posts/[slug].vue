@@ -63,7 +63,7 @@ useSeoMeta({
   <main>
     <section class="flex items-center justify-between">
       <button
-        class="flex items-center uppercase font-semibold gap-2"
+        class="flex items-center uppercase font-semibold gap-2 hover:opacity-50"
         @click="$router.go(-1)"
       >
         <span>
