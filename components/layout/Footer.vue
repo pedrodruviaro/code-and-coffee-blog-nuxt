@@ -39,7 +39,7 @@ function handleSubmit() {
             class="text-brand-black p-2 focus:outline-brand-main w-full max-w-[22ch]"
           />
 
-          <UiButton as="button">Sign up</UiButton>
+          <UiButton mode="light" variant="filled">Sign up</UiButton>
         </form>
       </div>
 

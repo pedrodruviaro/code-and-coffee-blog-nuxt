@@ -37,10 +37,8 @@ const { data } = await useAsyncQuery<GetFirstSevenPostsPreview>(query)
   >
     <div>
       <PostPreviewList :posts="data.posts" />
-      <NuxtLink
-        to="/posts"
-        class="font-black uppercase text-lg md:text-3xl mt-5 block py-2 hover:text-brand-gray transition-all"
-        >See all posts</NuxtLink
+      <UiButton link to="/posts" variant="ghost" size="lg" class="max-w-max"
+        >See all posts</UiButton
       >
     </div>
 

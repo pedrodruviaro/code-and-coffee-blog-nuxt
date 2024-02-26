@@ -1,51 +1,11 @@
 <script setup lang="ts">
-import type { PostPreview } from "~/types"
-
 useSeoMeta({
   title: "Posts",
   description: "",
 })
 
-interface GetPosts {
-  posts: PostPreview[]
-  postsConnection: {
-    aggregate: {
-      count: number
-    }
-  }
-}
-
-const POSTS_QUERY_LIMIT = 5
-
-const inicialQuery = gql`
-  query GetInitialPosts($first: Int!) {
-    posts(first: $first, orderBy: date_DESC) {
-      title
-      slug
-      image {
-        url
-      }
-      date
-      description
-      category {
-        name
-        slug
-      }
-      author {
-        name
-        slug
-      }
-    }
-    postsConnection {
-      aggregate {
-        count
-      }
-    }
-  }
-`
-
-const loadMoreQuery = gql`
-  query GetMorePosts($first: Int, $skip: Int) {
+const query = gql`
+  query GetPosts($first: Int, $skip: Int) {
     posts(first: $first, skip: $skip, orderBy: date_DESC) {
       title
       slug
@@ -71,40 +31,12 @@ const loadMoreQuery = gql`
   }
 `
 
-const loadMoreVariables = reactive({ first: POSTS_QUERY_LIMIT, skip: 0 })
-const canLoadMore = ref(true)
+const QUERY_OFFSET = 10
 
-const { result, fetchMore, loading } = useQuery<GetPosts>(inicialQuery, {
-  first: POSTS_QUERY_LIMIT,
+const { result, canLoadMore, loading, loadMore } = usePostsQuery({
+  query: query,
+  offset: QUERY_OFFSET,
 })
-
-const totalPosts = computed(() => {
-  return result.value?.postsConnection.aggregate.count
-})
-
-function loadMore() {
-  loadMoreVariables.skip = loadMoreVariables.skip + POSTS_QUERY_LIMIT
-
-  if (totalPosts.value) {
-    if (loadMoreVariables.skip + POSTS_QUERY_LIMIT >= totalPosts.value) {
-      canLoadMore.value = false
-    }
-  }
-
-  fetchMore({
-    query: loadMoreQuery,
-    variables: loadMoreVariables,
-    updateQuery: (previousResult, { fetchMoreResult }) => {
-      if (!fetchMoreResult) return previousResult
-
-      return {
-        ...previousResult,
-        cursor: fetchMoreResult.posts,
-        posts: [...previousResult.posts, ...fetchMoreResult?.posts],
-      }
-    },
-  })
-}
 </script>
 
 <template>
@@ -115,7 +47,7 @@ function loadMore() {
     </div>
 
     <UiButton
-      v-if="canLoadMore"
+      v-show="canLoadMore"
       @click="loadMore"
       :loading="loading"
       class="bg-blue-400 p-2 font-bold"
