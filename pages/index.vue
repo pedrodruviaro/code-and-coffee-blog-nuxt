@@ -16,9 +16,18 @@ useSeoMeta({
           alt="Code & Coffee"
         />
       </h1>
-      <div class="mt-10 md:bg-brand-black md:text-brand-white w-full md:p-4">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
-        neque, eligendi voluptates harum, quas error sint nulla.
+      <div
+        class="mt-10 bg-brand-black text-brand-white w-full p-2 text-sm md:p-4 md:text-base"
+      >
+        <p class="grid grid-cols-[max-content_1fr] gap-4">
+          <strong class="font-bold uppercase">Stay tuned - </strong>
+          <NuxtMarquee :auto-fill="true">
+            <span class="block mx-2"
+              >Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias neque, eligendi voluptates harum.</span
+            >
+          </NuxtMarquee>
+        </p>
       </div>
     </section>
 
