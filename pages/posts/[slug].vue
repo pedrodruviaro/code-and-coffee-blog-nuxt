@@ -69,7 +69,7 @@ useSeoMeta({
       </div>
 
       <div class="w-full aspect-video">
-        <img
+        <NuxtImg
           :src="data.post.image.url"
           alt=""
           aria-hidden="true"

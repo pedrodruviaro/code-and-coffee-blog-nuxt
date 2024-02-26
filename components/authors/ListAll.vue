@@ -18,7 +18,7 @@ const { data } = await useAsyncQuery<GetAuthors>(GetAllAuthors)
       :to="`/author/${author.slug}`"
     >
       <div class="w-24 aspect-square rounded-full overflow-hidden">
-        <img
+        <NuxtImg
           :src="author.avatar.url"
           :alt="author.name"
           class="w-full h-full object-cover object-center"

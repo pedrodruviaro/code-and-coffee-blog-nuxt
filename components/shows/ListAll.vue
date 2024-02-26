@@ -13,7 +13,7 @@ const { data } = await useAsyncQuery<GetShows>(GetFirstThreeShows)
       class="border border-brand-black p-4 grid gap-8"
     >
       <div class="grid overflow-hidden w-full aspect-square">
-        <img
+        <NuxtImg
           :src="show.image.url"
           :alt="show.title"
           class="w-full h-full object-cover object-center"

@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { GetPostsByAuthorWithPagination } from "@/queries"
 
-const { slug } = useRoute().params
+const route = useRoute()
+const slug = computed(() => {
+  return String(route.params.slug)
+})
 
 const canLoadMore = ref(true)
 const variables = {
-  author: slug,
+  author: slug.value,
   first: 2,
   skip: 0,
 }
@@ -45,23 +48,19 @@ function loadMore() {
 </script>
 
 <template>
-  <PostListAndFeaturedGrid>
-    <div v-if="result.posts.length !== 0">
-      <UiSectionTitle as="h1" text="Browse posts" class="mb-10" />
-      <div v-if="result?.posts">
-        <PostPreviewList :posts="result.posts" />
+  <div>
+    <PostListAndFeaturedGrid>
+      <div>
+        <UiSectionTitle as="h1" text="Browse posts" class="mb-10" />
+        <div v-if="result && result.posts && result?.posts.length !== 0">
+          <PostPreviewList :posts="result.posts" />
+        </div>
+        <div v-else class="mb-4">No posts found</div>
+
+        <UiButton v-if="canLoadMore" @click="loadMore" :disabled="loading">
+          LOAD MORE
+        </UiButton>
       </div>
-
-      <UiButton v-if="canLoadMore" @click="loadMore" :disabled="loading">
-        LOAD MORE
-      </UiButton>
-    </div>
-
-    <div v-else>
-      <h2 class="text-lg mb-4">
-        The author <strong>{{ slug }}</strong> does not exists...
-      </h2>
-      <UiButton @click="$router.go(-1)"> Go back </UiButton>
-    </div>
-  </PostListAndFeaturedGrid>
+    </PostListAndFeaturedGrid>
+  </div>
 </template>

@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/apollo",
     "nuxt-marquee",
     "@nuxtjs/sitemap",
+    "@nuxt/image",
   ],
 
   googleFonts: {
@@ -30,5 +31,9 @@ export default defineNuxtConfig({
 
   site: {
     url: "https://code-and-coffee.pedroruviaro.com.br/",
+  },
+
+  image: {
+    domains: [process.env.NUXT_APOLLO_CONTENT_API as string],
   },
 })

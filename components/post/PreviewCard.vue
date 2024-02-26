@@ -23,7 +23,7 @@ const { date: postDate } = usePostDate(props.post.date)
     <div
       class="w-full aspect-square md:max-w-72 overflow-hidden post--card-image"
     >
-      <img
+      <NuxtImg
         :src="post.image.url"
         :alt="post.title"
         class="object-cover w-full h-full transition-all"
