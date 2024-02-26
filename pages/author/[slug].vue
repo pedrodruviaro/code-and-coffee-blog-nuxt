@@ -3,7 +3,9 @@ const { slug } = useRoute().params
 </script>
 
 <template>
-  <div>
-    {{ slug }}
-  </div>
+  <PostListAndFeaturedGrid>
+    <div>
+      {{ slug }}
+    </div>
+  </PostListAndFeaturedGrid>
 </template>

@@ -60,3 +60,11 @@ export interface Post {
     url: string
   }
 }
+
+export interface FeaturedPosts {
+  posts: {
+    __typename: string
+    title: string
+    slug: string
+  }
+}

@@ -1,11 +1,5 @@
 <script setup lang="ts">
-interface FeaturedPosts {
-  posts: {
-    __typename: string
-    title: string
-    slug: string
-  }
-}
+import type { FeaturedPosts } from "@/types"
 
 const query = gql`
   query GetFirstThreeFeaturedPosts {
@@ -25,7 +19,7 @@ const { data } = await useAsyncQuery<FeaturedPosts>(query)
 </script>
 
 <template>
-  <aside v-if="data.posts">
+  <aside>
     <div
       class="w-full border border-brand-gray p-4 grid gap-4 md:grid-cols-2 lg:gap-4 lg:grid-cols-1 lg:overflow-hidden lg:w-72 xl:w-96"
     >
