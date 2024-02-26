@@ -1,52 +1,4 @@
-export const GetFirstThreeShows = gql`
-  query GetFirstThreeShows {
-    shows(first: 3) {
-      title
-      description
-      link
-      image {
-        url
-      }
-    }
-  }
-`
-
-export const GetFirstFourFeaturedPosts = gql`
-  query GetFirstFourFeaturedPosts {
-    posts(
-      first: 4
-      stage: PUBLISHED
-      orderBy: date_DESC
-      where: { featured: true }
-    ) {
-      title
-      slug
-    }
-  }
-`
-
-export const GetFirstSevenPostsPreview = gql`
-  query GetFirstSevenPostsPreview {
-    posts(first: 7, orderBy: date_DESC) {
-      title
-      slug
-      image {
-        url
-      }
-      date
-      description
-      category {
-        name
-        slug
-      }
-      author {
-        name
-        slug
-      }
-    }
-  }
-`
-
+// Authors
 export const GetAllAuthors = gql`
   query GetAllAuthors {
     authors {
@@ -60,6 +12,7 @@ export const GetAllAuthors = gql`
   }
 `
 
+// Posts
 export const GetPostBySlug = gql`
   query GetPostBySlug($slug: String) {
     post(where: { slug: $slug }) {
@@ -139,9 +92,59 @@ export const GetPostsByAuthorWithPagination = gql`
         slug
       }
     }
-    postsConnection {
+    postsConnection(where: { author: { slug: $author } }) {
       aggregate {
         count
+      }
+    }
+  }
+`
+
+export const GetFirstFourFeaturedPosts = gql`
+  query GetFirstFourFeaturedPosts {
+    posts(
+      first: 4
+      stage: PUBLISHED
+      orderBy: date_DESC
+      where: { featured: true }
+    ) {
+      title
+      slug
+    }
+  }
+`
+
+export const GetFirstSevenPostsPreview = gql`
+  query GetFirstSevenPostsPreview {
+    posts(first: 7, orderBy: date_DESC) {
+      title
+      slug
+      image {
+        url
+      }
+      date
+      description
+      category {
+        name
+        slug
+      }
+      author {
+        name
+        slug
+      }
+    }
+  }
+`
+
+// Shows
+export const GetFirstThreeShows = gql`
+  query GetFirstThreeShows {
+    shows(first: 3) {
+      title
+      description
+      link
+      image {
+        url
       }
     }
   }

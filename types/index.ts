@@ -1,3 +1,16 @@
+// Author
+export interface Author {
+  __typename: string
+  name: string
+  slug: string
+  description: string
+  avatar: {
+    __typename: string
+    url: string
+  }
+}
+
+// Post
 export interface PostPreview {
   __typename: string
   title: string
@@ -17,17 +30,6 @@ export interface PostPreview {
     __typename: string
     name: string
     slug: string
-  }
-}
-
-export interface Author {
-  __typename: string
-  name: string
-  slug: string
-  description: string
-  avatar: {
-    __typename: string
-    url: string
   }
 }
 
@@ -66,5 +68,26 @@ export interface FeaturedPosts {
     __typename: string
     title: string
     slug: string
+  }
+}
+
+export interface PostsWithPagination {
+  posts: PostPreview[]
+  postsConnection: {
+    aggregate: {
+      count: number
+    }
+  }
+}
+
+// Shows
+export interface GetShows {
+  shows: {
+    title: string
+    description: string
+    link: string
+    image: {
+      url: string
+    }
   }
 }
