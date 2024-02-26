@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -6,6 +7,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "@nuxtjs/apollo",
     "nuxt-marquee",
+    "@nuxtjs/sitemap",
   ],
 
   googleFonts: {
@@ -24,5 +26,9 @@ export default defineNuxtConfig({
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
+  },
+
+  site: {
+    url: "https://code-and-coffee.pedroruviaro.com.br/",
   },
 })
