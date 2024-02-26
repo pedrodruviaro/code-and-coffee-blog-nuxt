@@ -35,5 +35,6 @@ export default defineNuxtConfig({
 
   image: {
     domains: [process.env.NUXT_APOLLO_CONTENT_API as string],
+    format: ["webp"],
   },
 })
