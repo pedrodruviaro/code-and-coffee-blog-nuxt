@@ -57,25 +57,24 @@ const hasMorePosts = computed(() => {
 </script>
 
 <template>
-  <div>
-    <div>
+  <div class="grid gap-8 lg:grid-cols-[1fr_2.25fr] lg:gap-10">
+    <div v-if="result?.author">
       <h1
         class="uppercase font-black mb-10 text-2xl lg:text-4xl"
         v-if="result?.author"
       >
         Posts by
       </h1>
-      <div class="mb-10" v-if="result?.author">
-        <AuthorsCard :author="result?.author" />
-      </div>
-
+      <AuthorsCard :author="result?.author" />
+    </div>
+    <div>
       <div
         v-if="result && result.posts && result?.posts.length !== 0"
         class="max-w-[60rem]"
       >
         <PostPreviewList :posts="result.posts" />
       </div>
-      <div v-else class="mb-4 text-2xl">No posts by this author found</div>
+      <div v-else class="mb-4 text-2xl">No posts found for this author</div>
 
       <ClientOnly>
         <UiButton
