@@ -1,40 +1,15 @@
 <script setup lang="ts">
+import { GetPostsWithPagination } from "@/queries"
+
 useSeoMeta({
   title: "Posts",
   description: "",
 })
 
-const query = gql`
-  query GetPosts($first: Int, $skip: Int) {
-    posts(first: $first, skip: $skip, orderBy: date_DESC) {
-      title
-      slug
-      image {
-        url
-      }
-      date
-      description
-      category {
-        name
-        slug
-      }
-      author {
-        name
-        slug
-      }
-    }
-    postsConnection {
-      aggregate {
-        count
-      }
-    }
-  }
-`
-
 const QUERY_OFFSET = 5
 
 const { result, canLoadMore, loading, loadMore } = usePostsQuery({
-  query: query,
+  query: GetPostsWithPagination,
   offset: QUERY_OFFSET,
 })
 </script>

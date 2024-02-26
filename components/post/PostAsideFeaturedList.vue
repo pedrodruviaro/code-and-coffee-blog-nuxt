@@ -1,21 +1,8 @@
 <script setup lang="ts">
 import type { FeaturedPosts } from "@/types"
+import { GetFirstFourFeaturedPosts } from "@/queries"
 
-const query = gql`
-  query GetFirstThreeFeaturedPosts {
-    posts(
-      first: 4
-      stage: PUBLISHED
-      orderBy: date_DESC
-      where: { featured: true }
-    ) {
-      title
-      slug
-    }
-  }
-`
-
-const { data } = await useAsyncQuery<FeaturedPosts>(query)
+const { data } = await useAsyncQuery<FeaturedPosts>(GetFirstFourFeaturedPosts)
 </script>
 
 <template>

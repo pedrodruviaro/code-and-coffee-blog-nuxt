@@ -1,24 +1,12 @@
 <script setup lang="ts">
 import type { Author } from "@/types"
+import { GetAllAuthors } from "@/queries"
 
 interface GetAuthors {
   authors: Author[]
 }
 
-const query = gql`
-  query GetAllAuthors {
-    authors {
-      name
-      slug
-      description
-      avatar {
-        url
-      }
-    }
-  }
-`
-
-const { data } = await useAsyncQuery<GetAuthors>(query)
+const { data } = await useAsyncQuery<GetAuthors>(GetAllAuthors)
 </script>
 
 <template>

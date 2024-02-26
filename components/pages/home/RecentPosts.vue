@@ -1,33 +1,14 @@
 <script setup lang="ts">
 import type { PostPreview } from "@/types"
+import { GetFirstSevenPostsPreview } from "@/queries"
 
 interface GetFirstSevenPostsPreview {
   posts: PostPreview[]
 }
 
-const query = gql`
-  query GetFirstSevenPostsPreview {
-    posts(first: 7, orderBy: date_DESC) {
-      title
-      slug
-      image {
-        url
-      }
-      date
-      description
-      category {
-        name
-        slug
-      }
-      author {
-        name
-        slug
-      }
-    }
-  }
-`
-
-const { data } = await useAsyncQuery<GetFirstSevenPostsPreview>(query)
+const { data } = await useAsyncQuery<GetFirstSevenPostsPreview>(
+  GetFirstSevenPostsPreview
+)
 </script>
 
 <template>

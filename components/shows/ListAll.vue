@@ -1,18 +1,7 @@
 <script setup lang="ts">
-const query = gql`
-  query GetFirstThreeShows {
-    shows(first: 3) {
-      title
-      description
-      link
-      image {
-        url
-      }
-    }
-  }
-`
+import { GetFirstThreeShows } from "@/queries"
 
-const { data } = await useAsyncQuery(query)
+const { data } = await useAsyncQuery(GetFirstThreeShows)
 </script>
 
 <template>

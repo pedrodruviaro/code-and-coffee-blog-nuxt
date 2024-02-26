@@ -10,7 +10,6 @@ defineProps<Props>()
 
 <template>
   <div class="grid gap-6 lg:gap-10">
-    <!-- card -->
     <PostPreviewCard v-for="post in posts" :key="post.slug" :post="post" />
   </div>
 </template>

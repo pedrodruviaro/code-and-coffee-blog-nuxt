@@ -1,39 +1,13 @@
 <script setup lang="ts">
 import type { Post } from "@/types"
+import { GetPostBySlug } from "@/queries"
 
-const query = gql`
-  query GetPostBySlug($slug: String) {
-    post(where: { slug: $slug }) {
-      author {
-        avatar {
-          url
-        }
-        description
-        name
-        slug
-      }
-      category {
-        name
-        slug
-      }
-      content {
-        html
-      }
-      title
-      date
-      description
-      image {
-        url
-      }
-    }
-  }
-`
 const {
   params: { slug },
 } = useRoute()
 
 const variables = { slug }
-const { data, error } = await useAsyncQuery<Post>(query, variables)
+const { data, error } = await useAsyncQuery<Post>(GetPostBySlug, variables)
 
 if (error.value) {
   throw createError({
