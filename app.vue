@@ -5,6 +5,13 @@ useHead({
   titleTemplate: (chunk) => {
     return chunk ? `${chunk} | ${BASE_SITE_TITLE}` : BASE_SITE_TITLE
   },
+  meta: [
+    {
+      name: "og:image",
+      content:
+        "https://raw.githubusercontent.com/pedrodruviaro/code-and-coffee-blog-nuxt/main/_images/home-1.png",
+    },
+  ],
 })
 </script>
 
