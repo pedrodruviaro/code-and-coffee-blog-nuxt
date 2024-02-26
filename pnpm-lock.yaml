@@ -28,6 +28,9 @@ devDependencies:
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.1)
+  nuxt-marquee:
+    specifier: ^1.0.3
+    version: 1.0.3(vue@3.4.19)
 
 packages:
 
@@ -4655,6 +4658,17 @@ packages:
       fsevents: 2.3.3
     dev: false
 
+  /nuxt-marquee@1.0.3(vue@3.4.19):
+    resolution: {integrity: sha512-psKuuwgftPI9NXHgmRua00dJr+XdHojxGge9vOGEXfSpRGzerJUywd4AJF5Bxmjy46xIeWh88/TzJsxqFa+rTA==}
+    dependencies:
+      '@nuxt/kit': 3.10.3
+      vue-fast-marquee: 1.0.6(vue@3.4.19)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - vue
+    dev: true
+
   /nuxt@3.10.3(vite@5.1.4):
     resolution: {integrity: sha512-NchGNiiz9g/ErJAb462W/lpX2NqcXYb9hugySKWvLXNdrjeAPiJ2/7mhgwUSiZA9MpjuQg3saiEajr1zlRIOCg==}
     engines: {node: ^14.18.0 || >=16.10.0}
@@ -6677,6 +6691,14 @@ packages:
   /vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
     dev: false
+
+  /vue-fast-marquee@1.0.6(vue@3.4.19):
+    resolution: {integrity: sha512-VMqaeuBSS3L55Q84EuLJPHZ4Zv4UVBDXmh+2hb1IBTLKt/FmurJnWVXv8BNnbQSupA4kHbPlWDLwp+kvEMOF7A==}
+    peerDependencies:
+      vue: '>=3.2.0'
+    dependencies:
+      vue: 3.4.19
+    dev: true
 
   /vue-router@4.3.0(vue@3.4.19):
     resolution: {integrity: sha512-dqUcs8tUeG+ssgWhcPbjHvazML16Oga5w34uCUmsk7i0BcnskoLGwjpa15fqMr2Fa5JgVBrdL2MEgqz6XZ/6IQ==}
