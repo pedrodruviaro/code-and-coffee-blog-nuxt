@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { GetFirstThreeShows } from "@/queries"
+import type { GetShows } from "@/types"
 
-const { data } = await useAsyncQuery(GetFirstThreeShows)
+const { data } = await useAsyncQuery<GetShows>(GetFirstThreeShows)
 </script>
 
 <template>

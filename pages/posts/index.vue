@@ -1,17 +1,56 @@
 <script setup lang="ts">
 import { GetPostsWithPagination } from "@/queries"
+import type { PostsWithPagination } from "~/types"
 
 useSeoMeta({
   title: "Posts",
   description: "",
 })
 
-const QUERY_OFFSET = 5
-
-const { result, canLoadMore, loading, loadMore } = usePostsQuery({
-  query: GetPostsWithPagination,
-  offset: QUERY_OFFSET,
+const canLoadMore = ref(true)
+const variables = reactive({
+  skip: 0,
+  first: 5,
 })
+
+const { result, fetchMore, loading } = useQuery<PostsWithPagination>(
+  GetPostsWithPagination,
+  {
+    first: variables.first,
+    skip: 0,
+  }
+)
+
+const totalPosts = computed(() => {
+  return result.value?.postsConnection?.aggregate?.count
+})
+
+function loadMore() {
+  variables.skip = variables.skip + variables.first
+
+  if (
+    totalPosts.value &&
+    variables.skip + variables.first >= totalPosts.value
+  ) {
+    canLoadMore.value = false
+  }
+
+  fetchMore({
+    variables: {
+      first: variables.first,
+      skip: variables.skip,
+    },
+
+    updateQuery: (previeousResult, { fetchMoreResult }) => {
+      if (!fetchMoreResult) return previeousResult
+
+      return {
+        ...previeousResult,
+        posts: [...previeousResult.posts, ...fetchMoreResult.posts],
+      }
+    },
+  })
+}
 </script>
 
 <template>
@@ -22,12 +61,7 @@ const { result, canLoadMore, loading, loadMore } = usePostsQuery({
         <PostPreviewList :posts="result.posts" />
       </div>
 
-      <UiButton
-        v-show="canLoadMore"
-        @click="loadMore"
-        :loading="loading"
-        class="bg-blue-400 p-2 font-bold"
-      >
+      <UiButton v-if="canLoadMore" @click="loadMore" :disabled="loading">
         LOAD MORE
       </UiButton>
     </div>
