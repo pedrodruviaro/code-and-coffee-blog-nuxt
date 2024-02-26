@@ -9,7 +9,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <Component :is="as" class="w-[94%] max-w-[90rem] mx-auto">
+  <Component :is="as" class="w-[94%] max-w-[100rem] mx-auto">
     <slot />
   </Component>
 </template>
