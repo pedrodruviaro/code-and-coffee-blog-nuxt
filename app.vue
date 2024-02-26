@@ -9,7 +9,7 @@ useHead({
     {
       name: "og:image",
       content:
-        "https://raw.githubusercontent.com/pedrodruviaro/code-and-coffee-blog-nuxt/main/_images/home-1.png",
+        "https://raw.githubusercontent.com/pedrodruviaro/code-and-coffee-blog-nuxt/main/_images/banner.png",
     },
   ],
 })
