@@ -82,22 +82,8 @@ useSeoMeta({
       class="flex flex-col-reverse gap-10 lg:grid lg:grid-cols-[1fr_2fr] lg:items-start xl:gap-14"
     >
       <aside class="lg:sticky lg:top-8">
-        <div class="flex items-center gap-4 mb-4">
-          <div class="w-20 aspect-square rounded-full overflow-hidden">
-            <img
-              :src="data.post.author.avatar.url"
-              :alt="data.post.author.name"
-              class="w-full h-full object-cover object-center"
-            />
-          </div>
-          <h4 class="font-bold text-2xl md:text-3xl max-w-[11ch]">
-            {{ data.post.author.name }}
-          </h4>
-        </div>
-        <p class="border-b-2 border-brand-gray pb-4 mb-4 max-w-[50ch]">
-          {{ data.post.author.description }}
-        </p>
-        <p><strong>Date: </strong>{{ postDate }}</p>
+        <AuthorsCard :author="data.post.author" />
+        <p class="mt-4"><strong>Date: </strong>{{ postDate }}</p>
       </aside>
 
       <!-- CONTENT -->

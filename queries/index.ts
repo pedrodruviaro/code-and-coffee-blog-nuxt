@@ -97,6 +97,15 @@ export const GetPostsByAuthorWithPagination = gql`
         count
       }
     }
+
+    author(where: { slug: $author }) {
+      name
+      slug
+      description
+      avatar {
+        url
+      }
+    }
   }
 `
 

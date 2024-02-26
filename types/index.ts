@@ -80,6 +80,16 @@ export interface PostsWithPagination {
   }
 }
 
+export interface PostsByAuthorWithPagination {
+  posts: PostPreview[]
+  postsConnection: {
+    aggregate: {
+      count: number
+    }
+  }
+  author: Author
+}
+
 // Shows
 export interface GetShows {
   shows: {
